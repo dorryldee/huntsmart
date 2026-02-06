@@ -16,77 +16,104 @@
   
   <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-    <div class="bg-emphasis text-primary p-3" id="sidebar" style="width: 250px; min-height: 100vh;">
-      <h4 class="text-center mb-3">Admin Panel</h4>
+   
+    <div class="bg-emphasis text-primary p-3" id="sidebar" style="width: 250px; min-height: 100vh;" >
+      <h4 class="text-center mb-3">Smart Hunting Dashboard</h4>
       <div class="list-group list-group-flush">
-        <a class="list-group-item list-group-item-action bg-primary text-white" data-bs-toggle="collapse" href="#dashboardMenu">
-          <i class="bi bi-speedometer2 me-2"></i> Admin Dashboard
-        </a>
-        <div class="collapse ps-3" id="dashboardMenu">
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Overview</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Revenue Graphs</a>
-        </div>
+   <a class="list-group-item list-group-item-action bg-primary text-white" data-target="content-dashboard">
+  <i class="bi bi-speedometer2 me-2"></i> Admin Dashboard
+</a>
 
-        <a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-bs-toggle="collapse" href="#userMenu">
-          <i class="bi bi-people-fill me-2"></i> User Management
-        </a>
-        <div class="collapse ps-3" id="userMenu">
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">View Users</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Assign Roles</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Suspend/Activate</a>
-        </div>
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-users">
+  <i class="bi bi-people-fill me-2"></i> User Management
+</a>
 
-        <a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-bs-toggle="collapse" href="#propertyMenu">
-          <i class="bi bi-house-fill me-2"></i> Property Management
-        </a>
-        <div class="collapse ps-3" id="propertyMenu">
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Approve Listings</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Manage Properties</a>
-        </div>
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-properties">
+  <i class="bi bi-house-fill me-2"></i> Property Management
+</a>
 
-        <a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-bs-toggle="collapse" href="#paymentMenu">
-          <i class="bi bi-currency-exchange me-2"></i> Payments & Transactions
-        </a>
-        <div class="collapse ps-3" id="paymentMenu">
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Track Payments</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Reports</a>
-        </div>
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-chat">
+  <i class="bi bi-chat-dots-fill me-2"></i> Inquiries & Chat Monitoring
+</a>
 
-        <a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-bs-toggle="collapse" href="#settingsMenu">
-          <i class="bi bi-gear-fill me-2"></i> System Settings
-        </a>
-        <div class="collapse ps-3" id="settingsMenu">
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">API Configuration</a>
-          <a href="#" class="list-group-item list-group-item-action bg-primary text-white">Booking Rules</a>
-        </div>
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-payments">
+  <i class="bi bi-currency-exchange me-2"></i> Payments & Transactions
+</a>
+
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-announcements">
+  <i class="bi bi-bell-fill me-2"></i> Announcements & Notifications
+</a>
+
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-reports">
+  <i class="bi bi-graph-up-arrow me-2"></i> Reports & Analytics
+</a>
+
+<a class="list-group-item list-group-item-action bg-primary text-white mt-1" data-target="content-settings">
+  <i class="bi bi-gear-fill me-2"></i> System Settings
+</a>
+
 
       </div>
     </div>
-    <!-- /#sidebar -->
+   
 
     <!-- Page Content -->
-    <div class="flex-grow-1 p-4" id="page-content">
-      <header class="mb-4">
-        <h2>Welcome, Admin</h2>
-        <p>Select a module from the sidebar to manage it.</p>
-      </header>
+       <!-- CONTENT AREA -->
+  <div class="flex-grow-1 d-flex flex-column min-vh-100">
+<header class="bg-white border-bottom shadow-sm px-4 py-3 mb-4">
+  <div class="row align-items-center">
 
+    <!-- Left: Title -->
+      <div class="col-md-4 d-flex align-items-center gap-3">
+      <span class="fs-4 text-primary">
+        <i class="bi bi-list"></i>
+      </span>
+      <h4 class="mb-0 fw-semibold">Dashboard</h4>
+    </div>
   
-  <main class="container my-5">
-    <div class="row g-4">
+      <div class="col-md-4 text-center">
+      <form class="d-none d-md-block">
+        <input 
+          type="search" 
+          class="form-control rounded-pill mx-auto w-75"
+          placeholder="Search here"
+        >
+      </form>
+    </div>
 
-      <!-- Module Card Template -->
-<!-- Admin Dashboard Section -->
-<div class="card shadow mb-4">
-  <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-    <h5 class="mb-0"><i class="bi bi-speedometer2 me-2"></i>Admin Dashboard</h5>
-    <button class="btn btn-sm btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#dashboardContent">
-      <i class="bi bi-chevron-down"></i>
-    </button>
+    <div class="col-md-4 d-flex justify-content-end align-items-center gap-2">
+      <img src="assets/images/wi.jpg" 
+        alt=""
+        class="rounded-circle border border-primary"
+        width="40" 
+        height="40"
+      >
+      <span class="fw-semibold">Doryl Mbula</span>
+    </div>
+
   </div>
+</header>
+
+
+
   
-  <div class="collapse show" id="dashboardContent">
+ <main class="flex-grow-1 container-fluid px-4 py-4">
+  <div class="row">
+    <section class="main-section" id="dashboardSection">
+
+      <!-- Dashboard Overview -->
+    <div id="content-dashboard" class="content-section">
+    <div class="col-12">
+      <div class="card shadow mb-4">
+
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">
+            <i class="bi bi-speedometer2 me-2"></i>
+            Admin Dashboard
+          </h5>
+        </div>
+  
+  <div id="dashboardContent">
     <div class="card-body">
       
       <!-- Platform Statistics -->
@@ -141,8 +168,14 @@
     </div>
   </div>
 </div>
+</div>
+</div>
+</section>
+
 
       <!-- User Management -->
+<section class="main-section" id="UserSection">
+ <div id="content-users" class="content-section" style="display:none">
   <div class="card shadow mb-4">
   <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
     <h5 class="mb-0"><i class="bi bi-people-fill me-2"></i>User Management</h5>
@@ -284,9 +317,13 @@
     </div>
   </div>
 </div>
+</div>
+</section>
 
 
       <!-- Property Management -->
+       <section class="main-section" id="PropertySection">
+       <div id="content-properties" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-warning text-white d-flex align-items-center justify-content-between">
@@ -306,8 +343,12 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
 
       <!-- Inquiries & Chat Monitoring -->
+       <section class="main-section" id="ChatSection">
+       <div id="content-chat" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-info text-white d-flex align-items-center justify-content-between">
@@ -326,8 +367,12 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
 
       <!-- Payments & Transactions -->
+       <section class="main-section" id="PaymentSection">
+       <div id="content-payments" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-danger text-white d-flex align-items-center justify-content-between">
@@ -347,8 +392,12 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
 
       <!-- Announcements & Notifications -->
+       <section class="main-section" id="AnnounceSection">
+       <div id="content-announcements" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-secondary text-white d-flex align-items-center justify-content-between">
@@ -367,8 +416,13 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
 
+       
       <!-- Reports & Analytics -->
+      <section class="main-section" id="ReportSection">
+       <div id="content-reports" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-dark text-white d-flex align-items-center justify-content-between">
@@ -387,8 +441,12 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
 
       <!-- System Settings -->
+       <section class="main-section" id="SettingsSection">
+      <div id="content-settings" class="content-section" style="display:none">
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 shadow card-hover">
           <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
@@ -408,12 +466,17 @@
           </div>
         </div>
       </div>
+      </div>
+      </section>
+
 
     </div>
+
+
   </main>
 
   <!-- Footer -->
-  <footer class="bg-light text-center py-3">
+   <footer class="bg-light text-center py-3 border-top">
     &copy; 2026 Admin Panel System | All Rights Reserved
   </footer>
 
@@ -649,5 +712,27 @@ document.getElementById('userSearch').addEventListener('input', function () {
 ================================ */
 renderTable();
 </script>
+<script>
+  const sidebarLinks = document.querySelectorAll('#sidebar .list-group-item');
+
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('data-target');
+      
+      // Hide all content sections
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Show the selected section
+      const targetSection = document.getElementById(targetId);
+      if(targetSection) targetSection.style.display = 'block';
+    });
+  });
+
+  // Optionally, show dashboard by default
+  document.getElementById('content-dashboard').style.display = 'block';
+</script>
+
 </body>
 </html>
