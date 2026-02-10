@@ -99,9 +99,8 @@
   
  <main class="flex-grow-1 container-fluid px-4 py-4">
   <div class="row">
+     <!-- Dashboard Overview -->
     <section class="main-section" id="dashboardSection">
-
-      <!-- Dashboard Overview -->
     <div id="content-dashboard" class="content-section">
     <div class="col-12">
       <div class="card shadow mb-4">
@@ -120,25 +119,25 @@
       <div class="mb-4">
         <h6 class="text-primary"><i class="bi bi-bar-chart-fill me-2"></i>Platform Statistics</h6>
         <div class="row text-center">
-          <div class="col-md-3 mb-3">
+          <div class="col-12 col-sm-6 col-md-3">
             <div class="bg-light p-3 rounded shadow-sm">
               <h3 class="text-primary" id="totalUsers">120</h3>
               <p class="mb-0">Total Users</p>
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-12 col-sm-6 col-md-3">
             <div class="bg-light p-3 rounded shadow-sm">
               <h3 class="text-primary" id="listedProperties">45</h3>
               <p class="mb-0">Listed Properties</p>
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-12 col-sm-6 col-md-3">
             <div class="bg-light p-3 rounded shadow-sm">
               <h3 class="text-primary" id="activeTenants">78</h3>
               <p class="mb-0">Active Tenants</p>
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-12 col-sm-6 col-md-3">
             <div class="bg-light p-3 rounded shadow-sm">
               <h3 class="text-primary" id="inquiries">32</h3>
               <p class="mb-0">Inquiries</p>
@@ -148,27 +147,48 @@
       </div>
 
       <!-- Revenue Graph -->
-      <div class="mb-4">
-        <h6 class="text-primary"><i class="bi bi-graph-up me-2"></i>Revenue & Bookings</h6>
-        <canvas id="revenueChart" width="300" height="100"></canvas>
+        <div class="row g-4 mt-3">
+      <div class="col-12 col-lg-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-primary text-white">
+            <i class="bi bi-graph-up me-2"></i>Revenue & Bookings
+          </div>
+          <div class="card-body">
+            <canvas id="revenueChart"></canvas>
+          </div>
+        </div>
       </div>
 
       <!-- Platform Performance -->
-      <div class="mb-4">
-        <h6 class="text-primary"><i class="bi bi-bar-chart-line me-2"></i>Performance Metrics</h6>
-        <canvas id="performanceChart" width="300" height="100"></canvas>
+       <div class="col-12 col-lg-6">
+        <div class="card shadow-sm h-100">
+          <div class="card-header bg-primary text-white">
+            <i class="bi bi-bar-chart-line me-2"></i>Performance Metrics
+          </div>
+          <div class="card-body">
+            <canvas id="performanceChart"></canvas>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Occupancy Rate -->
-      <div>
-        <h6 class="text-primary"><i class="bi bi-house-fill me-2"></i>House Occupancy Rate</h6>
-        <canvas id="occupancyChart" width="50" height="70"></canvas>
+     <!-- Occupancy Rate -->
+<div class="row justify-content-center mt-4">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="card shadow-sm">
+      
+      <div class="card-header bg-primary text-white py-2">
+        <i class="bi bi-house-fill me-2"></i> House Occupancy Rate
       </div>
-
+      
+      <div class="card-body p-3">
+        <canvas id="occupancyChart" height="120"></canvas>
+      </div>
+      
     </div>
   </div>
 </div>
-</div>
+
 </div>
 </section>
 
@@ -179,9 +199,7 @@
   <div class="card shadow mb-4">
   <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
     <h5 class="mb-0"><i class="bi bi-people-fill me-2"></i>User Management</h5>
-    <button class="btn btn-sm btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#userContent">
-      <i class="bi bi-chevron-down"></i>
-    </button>
+    
   </div>
 
   <div class="collapse show" id="userContent">
@@ -211,8 +229,8 @@
             <!-- Example users -->
             <tr>
               <td>1</td>
-              <td>John Doe</td>
-              <td>john@example.com</td>
+              <td>Ryan Kamau</td>
+              <td>ryan100@gmail.com</td>
               <td>Tenant</td>
               <td><span class="badge bg-success">Active</span></td>
               <td>
@@ -223,8 +241,8 @@
             </tr>
             <tr>
               <td>2</td>
-              <td>Jane Smith</td>
-              <td>jane@example.com</td>
+              <td>Cee Niah</td>
+              <td>ceen23@gmail.com</td>
               <td>Landlord</td>
               <td><span class="badge bg-success">Active</span></td>
               <td>
@@ -268,10 +286,11 @@
           </div>
           <div class="mb-3">
             <label for="editUserStatus" class="form-label">Status</label>
-            <select class="form-select" id="editUserStatus">
-              <option value="Active">Active</option>
-              <option value="Suspended">Suspended</option>
-            </select>
+             <select class="form-select" id="addUserStatus">
+                  <option value="Active">Active</option>
+                  <option value="Suspended">Suspended</option>
+                  <option value="Deactivated">Deactivated</option>
+                </select>
           </div>
           <button type="submit" class="btn btn-primary w-100">Save Changes</button>
         </form>
@@ -323,77 +342,354 @@
 
       <!-- Property Management -->
        <section class="main-section" id="PropertySection">
-       <div id="content-properties" class="content-section" style="display:none">
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow card-hover">
-          <div class="card-header bg-warning text-white d-flex align-items-center justify-content-between">
-            <span><i class="bi bi-house-fill me-2"></i>Property Management</span>
-            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#propertyCollapse">
-              <i class="bi bi-chevron-down"></i>
+  <div id="content-properties" class="content-section">
+    <div class="card shadow mb-4">
+      <div class="card-header bg-warning text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-house-fill me-2"></i>Property Management</h5>
+       
+      </div>
+
+      <div class="" id="propertyContent">
+        <div class="card-body">
+
+          <!-- Top Buttons -->
+          <div class="d-flex justify-content-between mb-3">
+            <input type="text" id="propertySearch" class="form-control w-50" placeholder="Search properties...">
+            <button class="btn btn-warning" onclick="openAddPropertyModal()">
+              <i class="bi bi-plus-circle me-1"></i>Add New Property
             </button>
           </div>
-          <div class="collapse" id="propertyCollapse">
-            <div class="card-body">
-              <ul>
-                <li>Approve or reject property listings</li>
-                <li>Update property details (availability, pricing)</li>
-                <li>Monitor occupancy rates and listing accuracy</li>
-              </ul>
-            </div>
+
+          <!-- Property Table -->
+          <div class="table-responsive">
+            <table class="table table-hover align-middle" id="propertyTable">
+              <thead class="table-light">
+                <tr>
+                  <th>#</th>
+                  <th>Property Name</th>
+                  <th>Location</th>
+                  <th>Type</th>
+                  <th>Price/Semester</th>
+                  <th>Occupancy</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Example Properties -->
+                <tr>
+                  <td>1</td>
+                  <td>Campus View Dorm</td>
+                  <td>Nairobi</td>
+                  <td>Dorm</td>
+                  <td>$500</td>
+                  <td>12/15</td>
+                  
+                  <td class="action-btns">
+  <button class="btn btn-sm btn-primary" onclick="editProperty(1)">
+    <i class="bi bi-pencil-square me-1"></i>Edit
+  </button>
+  <button class="btn btn-sm btn-warning" onclick="togglePropertyStatus(1)">
+    <i class="bi bi-slash-circle me-1"></i>Suspend
+  </button>
+  <button class="btn btn-sm btn-danger" onclick="rejectProperty(1)">
+    <i class="bi bi-x-circle me-1"></i>Reject
+  </button>
+</td>
+
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Green Acres Apartments</td>
+                  <td>Kisumu</td>
+                  <td>Apartment</td>
+                  <td>$800</td>
+                  <td>5/10</td>
+                  <td><span class="badge bg-warning">Pending</span></td>
+                  <td>
+                    <button class="btn btn-sm btn-primary me-1" onclick="editProperty(2)">Edit</button>
+                    <button class="btn btn-sm btn-warning me-1" onclick="togglePropertyStatus(2)">Suspend</button>
+                    <button class="btn btn-sm btn-success" onclick="approveProperty(2)">Approve</button>
+                    <button class="btn btn-sm btn-danger" onclick="rejectProperty(2)">Reject</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
         </div>
       </div>
+    </div>
+  </div>
+  <!-- Edit Property Modal -->
+<div class="modal fade" id="editPropertyModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Edit Property</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-      </section>
+      <div class="modal-body">
+        <form id="editPropertyForm">
+          <input type="hidden" id="editPropertyId">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" class="form-control" id="editPropertyName" required>
+          </div>
+          <div class="mb-3">
+            <label>Type</label>
+            <select class="form-select" id="editPropertyType">
+              <option>Apartment</option>
+              <option>Hostel</option>
+              <option>House</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Payment Type</label>
+            <select class="form-select" id="editPaymentType">
+              <option>Monthly</option>
+              <option>Semester</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Price</label>
+            <input type="number" class="form-control" id="editPropertyPrice" required>
+          </div>
+          <div class="mb-3">
+            <label>Location</label>
+            <input type="text" class="form-control" id="editPropertyLocation" required>
+          </div>
+          <div class="mb-3">
+            <label>Status</label>
+            <select class="form-select" id="editPropertyStatus">
+              <option>Pending</option>
+              <option>Approved</option>
+              <option>Rejected</option>
+              <option>Suspended</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Add Property Modal -->
+  <div class="modal fade" id="addPropertyModal" tabindex="-1" aria-labelledby="addPropertyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-white">
+          <h5 class="modal-title" id="addPropertyModalLabel"><i class="bi bi-plus-circle me-2"></i>Add New Property</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addPropertyForm">
+            <div class="row">
+              <div class="mb-3 col-md-6">
+                <label for="propertyName" class="form-label">Property Name</label>
+                <input type="text" class="form-control" id="propertyName" required>
+              </div>
+              <div class="mb-3 col-md-6">
+                <label for="propertyLocation" class="form-label">Location</label>
+                <input type="text" class="form-control" id="propertyLocation" required>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-md-4">
+                <label for="propertyType" class="form-label">Property Type</label>
+                <select class="form-select" id="propertyType">
+                  <option value="Hostel">Hostel</option>
+                  <option value="Apartment">Apartment</option>
+                  <option value="Studio">Studio</option>
+                </select>
+              </div>
+              <div class="mb-3 col-md-4">
+                <label for="propertyPrice" class="form-label">Price/Semester ($)</label>
+                <input type="number" class="form-control" id="propertyPrice" required>
+              </div>
+              <div class="mb-3 col-md-4">
+                <label for="propertyCapacity" class="form-label">Max Students</label>
+                <input type="number" class="form-control" id="propertyCapacity" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="propertyDescription" class="form-label">Description / Amenities</label>
+              <textarea class="form-control" id="propertyDescription" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100">Add Property</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Toast Notifications -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+  <div id="propertyToast" class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMessage">
+        <!-- Message will appear here -->
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>
+
+</section>
 
       <!-- Inquiries & Chat Monitoring -->
        <section class="main-section" id="ChatSection">
-       <div id="content-chat" class="content-section" style="display:none">
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow card-hover">
-          <div class="card-header bg-info text-white d-flex align-items-center justify-content-between">
-            <span><i class="bi bi-chat-dots-fill me-2"></i>Inquiries & Chat Monitoring</span>
-            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#chatCollapse">
-              <i class="bi bi-chevron-down"></i>
-            </button>
+  <div id="content-chat" class="content-section">
+    <div class="card shadow mb-4">
+      <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-chat-dots-fill me-2"></i>Inquiries & Chat Monitoring</h5>
+        <input type="text" id="chatSearch" class="form-control w-50" placeholder="Search chats...">
+      </div>
+
+      <div class="card-body">
+        <!-- Tabs for Ongoing & Stored Chats -->
+        <ul class="nav nav-tabs mb-3" id="chatTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="ongoing-tab" data-bs-toggle="tab" data-bs-target="#ongoing" type="button" role="tab">Ongoing Chats</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="logs-tab" data-bs-toggle="tab" data-bs-target="#logs" type="button" role="tab">Stored Logs</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="chatTabContent">
+          <!-- Ongoing Chats -->
+          <div class="tab-pane fade show active" id="ongoing" role="tabpanel">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle" id="ongoingChatTable">
+                <thead class="table-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Tenant</th>
+                    <th>Landlord</th>
+                    <th>Property</th>
+                    <th>Last Message</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Example ongoing chat -->
+                  <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Jane Smith</td>
+                    <td>Maple Hall</td>
+                    <td>Hello, is the room available for next semester?</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                      <button class="btn btn-sm btn-warning me-1" onclick="warnUser('John Doe')">Warn</button>
+                      <button class="btn btn-sm btn-danger me-1" onclick="suspendUser('John Doe')">Suspend</button>
+                      <button class="btn btn-sm btn-primary" onclick="markReviewed(1)">Reviewed</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <div class="collapse" id="chatCollapse">
-            <div class="card-body">
-              <ul>
-                <li>Real-time chat monitoring via Socket.IO</li>
-                <li>Access stored chat logs through MySQL</li>
-              </ul>
+
+          <!-- Stored Logs -->
+          <div class="tab-pane fade" id="logs" role="tabpanel">
+            <div class="table-responsive">
+              <table class="table table-hover align-middle" id="chatLogsTable">
+                <thead class="table-light">
+                  <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Tenant</th>
+                    <th>Landlord</th>
+                    <th>Property</th>
+                    <th>Message Snippet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>2026-02-05</td>
+                    <td>Doreen Nyambura</td>
+                    <td>Jane Smith</td>
+                    <td>Maple Hall</td>
+                    <td>Hello, I’d like to book the room for next semester...</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>2026-01-28</td>
+                    <td>Mary Brown</td>
+                    <td>David Lee</td>
+                    <td>Oak Apartments</td>
+                    <td>Is there parking available near the property?</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+
       </div>
-      </div>
-      </section>
+    </div>
+  </div>
+</section>
 
       <!-- Payments & Transactions -->
-       <section class="main-section" id="PaymentSection">
-       <div id="content-payments" class="content-section" style="display:none">
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 shadow card-hover">
-          <div class="card-header bg-danger text-white d-flex align-items-center justify-content-between">
-            <span><i class="bi bi-currency-exchange me-2"></i>Payments & Transactions</span>
-            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#paymentCollapse">
-              <i class="bi bi-chevron-down"></i>
-            </button>
+<section class="main-section" id="PaymentsSection">
+  <div class="container mt-4">
+    <h3 class="text-primary mb-4"><i class="bi bi-currency-exchange me-2"></i>Payments & Transactions</h3>
+
+    <!-- Top Filters & Actions -->
+    <div class="d-flex justify-content-between mb-3 flex-wrap gap-2">
+      <input type="text" id="paymentSearch" class="form-control w-50" placeholder="Search transactions...">
+      <button class="btn btn-success" onclick="generateReport()"><i class="bi bi-file-earmark-spreadsheet me-1"></i>Export Report</button>
+    </div>
+
+    <!-- Transactions Table -->
+    <div class="table-responsive">
+      <table class="table table-hover align-middle" id="paymentTable">
+        <thead class="table-light">
+          <tr>
+            <th>#</th>
+            <th>Tenant</th>
+            <th>Property</th>
+            <th>Amount (KES)</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example transactions -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div class="modal fade" id="receiptModal" tabindex="-1" aria-labelledby="receiptModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title" id="receiptModalLabel"><i class="bi bi-receipt me-2"></i>Payment Receipt</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
           </div>
-          <div class="collapse" id="paymentCollapse">
-            <div class="card-body">
-              <ul>
-                <li>Track payments via Daraja Mpesa API</li>
-                <li>Manage payment statuses (successful, failed, pending)</li>
-                <li>Generate revenue reports and invoices</li>
-              </ul>
-            </div>
+          <div class="modal-body" id="receiptContent">
+            <!-- Receipt details will be injected here -->
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-success" onclick="downloadReceipt()">Download PDF</button>
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-      </div>
-      </section>
+    </div>
+
+  </div>
+</section>
 
       <!-- Announcements & Notifications -->
        <section class="main-section" id="AnnounceSection">
@@ -684,6 +980,21 @@ function toggleStatus(id) {
   renderTable();
 }
 
+
+/* ==========================
+   DEACTIVATE USER
+========================== */
+function deactivateUser(id) {
+  const user = users.find(u => u.id === id);
+  if(user && user.status !== 'Deactivated') {
+    user.status = 'Deactivated';
+    saveUsers();
+    renderTable();
+    alert(`${user.name} has been deactivated and logged out.`);
+  } else {
+    alert(`${user.name} is already deactivated.`);
+  }
+}
 /* ==============================
    DELETE USER
 ================================ */
@@ -733,6 +1044,341 @@ renderTable();
   // Optionally, show dashboard by default
   document.getElementById('content-dashboard').style.display = 'block';
 </script>
+<script>
+let properties = JSON.parse(localStorage.getItem('properties')) || [
+  { id: 1, name: 'Campus View Dorm', location: 'Nairobi', type: 'Dorm', price: 500, occupancy: 12, capacity: 15, status: 'Approved' },
+  { id: 2, name: 'Green Acres Apartments', location: 'Kisumu', type: 'Apartment', price: 800, occupancy: 5, capacity: 10, status: 'Pending' }
+];
+
+function saveProperties() {
+  localStorage.setItem('properties', JSON.stringify(properties));
+}
+
+function renderProperties() {
+  const tbody = document.querySelector('#propertyTable tbody');
+  tbody.innerHTML = '';
+  properties.forEach((prop, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index+1}</td>
+      <td>${prop.name}</td>
+      <td>${prop.location}</td>
+      <td>${prop.type}</td>
+      <td>$${prop.price}</td>
+      <td>${prop.occupancy}/${prop.capacity}</td>
+      <td><span class="badge ${prop.status === 'Approved' ? 'bg-success' : prop.status === 'Pending' ? 'bg-warning' : 'bg-danger'}">${prop.status}</span></td>
+      <td>
+        <button class="btn btn-sm btn-primary me-1" onclick="editProperty(${prop.id})">Edit</button>
+        <button class="btn btn-sm btn-warning me-1" onclick="togglePropertyStatus(${prop.id})">${prop.status === 'Approved' ? 'Suspend' : 'Activate'}</button>
+        <button class="btn btn-sm btn-success me-1" onclick="approveProperty(${prop.id})">Approve</button>
+        <button class="btn btn-sm btn-danger" onclick="rejectProperty(${prop.id})">Reject</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+// Add Property
+function openAddPropertyModal() {
+  document.getElementById('addPropertyForm').reset();
+  new bootstrap.Modal(document.getElementById('addPropertyModal')).show();
+}
+
+document.getElementById('addPropertyForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const newProp = {
+    id: properties.length ? properties[properties.length-1].id+1 : 1,
+    name: document.getElementById('propertyName').value,
+    location: document.getElementById('propertyLocation').value,
+    type: document.getElementById('propertyType').value,
+    price: parseFloat(document.getElementById('propertyPrice').value),
+    occupancy: 0,
+    capacity: parseInt(document.getElementById('propertyCapacity').value),
+    status: 'Pending'
+  };
+  properties.push(newProp);
+  saveProperties();
+  renderProperties();
+  bootstrap.Modal.getInstance(document.getElementById('addPropertyModal')).hide();
+});
+
+function approveProperty(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = 'Approved';
+  renderPropertyTable();
+  
+  // Notify landlord
+  showNotification(`Property "${prop.name}" has been approved for the landlord!`, 'bg-success');
+}
+
+function rejectProperty(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = 'Rejected';
+  renderPropertyTable();
+  
+  // Notify landlord
+  showNotification(`Property "${prop.name}" has been rejected for the landlord.`, 'bg-danger');
+}
+
+function togglePropertyStatus(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = (prop.status === 'Suspended') ? 'Pending' : 'Suspended';
+  renderPropertyTable();
+
+  const message = (prop.status === 'Suspended') 
+      ? `Property "${prop.name}" has been suspended.` 
+      : `Property "${prop.name}" is active again.`;
+  
+  showNotification(message, 'bg-warning');
+}
+
+function togglePropertyStatus(id){
+  const prop = properties.find(p=>p.id===id);
+  prop.status = prop.status === 'Approved' ? 'Suspended' : 'Approved';
+  saveProperties();
+  renderProperties();
+}
+
+
+
+
+
+// Sample property data
+let Property = [
+  { id: 1, name: 'Sunrise Apartments', type: 'Apartment', payment_type: 'Monthly', price: 500, location: 'Nairobi', status: 'Pending' }
+];
+
+// Render table
+function renderPropertyTable() {
+  const tbody = document.querySelector('#propertyTable tbody');
+  tbody.innerHTML = '';
+
+  properties.forEach((prop, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index+1}</td>
+      <td>${prop.name}</td>
+      <td>${prop.type}</td>
+      <td>${prop.payment_type}</td>
+      <td>${prop.price}</td>
+      <td>${prop.location}</td>
+      <td><span class="badge ${prop.status === 'Approved' ? 'bg-success' : prop.status === 'Rejected' ? 'bg-danger' : 'bg-warning'}">${prop.status}</span></td>
+      <td>
+        <button class="btn btn-sm btn-primary me-1" onclick="openEditPropertyModal(${prop.id})">Edit</button>
+        <button class="btn btn-sm btn-warning me-1" onclick="togglePropertyStatus(${prop.id})">Suspend</button>
+        <button class="btn btn-sm btn-success me-1" onclick="approveProperty(${prop.id})">Approve</button>
+        <button class="btn btn-sm btn-danger" onclick="rejectProperty(${prop.id})">Reject</button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+// Open Edit Modal
+function openEditPropertyModal(id) {
+  const prop = properties.find(p => p.id === id);
+  document.getElementById('editPropertyId').value = prop.id;
+  document.getElementById('editPropertyName').value = prop.name;
+  document.getElementById('editPropertyType').value = prop.type;
+  document.getElementById('editPaymentType').value = prop.payment_type;
+  document.getElementById('editPropertyPrice').value = prop.price;
+  document.getElementById('editPropertyLocation').value = prop.location;
+  document.getElementById('editPropertyStatus').value = prop.status;
+
+  new bootstrap.Modal(document.getElementById('editPropertyModal')).show();
+}
+
+// Save changes
+document.getElementById('editPropertyForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const id = parseInt(document.getElementById('editPropertyId').value);
+  const prop = properties.find(p => p.id === id);
+
+  prop.name = document.getElementById('editPropertyName').value;
+  prop.type = document.getElementById('editPropertyType').value;
+  prop.payment_type = document.getElementById('editPaymentType').value;
+  prop.price = document.getElementById('editPropertyPrice').value;
+  prop.location = document.getElementById('editPropertyLocation').value;
+  prop.status = document.getElementById('editPropertyStatus').value;
+
+  renderPropertyTable();
+  bootstrap.Modal.getInstance(document.getElementById('editPropertyModal')).hide();
+});
+
+// Status buttons
+function togglePropertyStatus(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = (prop.status === 'Suspended') ? 'Pending' : 'Suspended';
+  renderPropertyTable();
+}
+
+function approveProperty(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = 'Approved';
+  renderPropertyTable();
+}
+
+function rejectProperty(id) {
+  const prop = properties.find(p => p.id === id);
+  prop.status = 'Rejected';
+  renderPropertyTable();
+}
+
+// Initial render
+renderPropertyTable();
+
+function showNotification(message, color = 'bg-primary') {
+  const toastEl = document.getElementById('propertyToast');
+  const toast = new bootstrap.Toast(toastEl);
+
+  const toastBody = document.getElementById('toastMessage');
+  toastBody.textContent = message;
+
+  // Set background color (success, danger, warning, primary)
+  toastEl.className = `toast align-items-center text-white ${color} border-0`;
+
+  toast.show();
+}
+
+
+</script>
+<script>
+function warnUser(user) {
+  alert(`Warning sent to ${user} regarding chat policy.`);
+}
+
+function suspendUser(user) {
+  if(confirm(`Are you sure you want to suspend ${user}?`)) {
+    alert(`${user} has been suspended.`);
+    // Update table to show suspended
+  }
+}
+
+function markReviewed(chatId) {
+  alert(`Chat #${chatId} marked as reviewed.`);
+  // Update table to show reviewed status
+}
+
+// Optional: Search chats
+document.getElementById('chatSearch').addEventListener('input', function() {
+  const search = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#ongoingChatTable tbody tr');
+  rows.forEach(row => {
+    const tenant = row.cells[1].textContent.toLowerCase();
+    const landlord = row.cells[2].textContent.toLowerCase();
+    const property = row.cells[3].textContent.toLowerCase();
+    row.style.display = (tenant.includes(search) || landlord.includes(search) || property.includes(search)) ? '' : 'none';
+  });
+});
+</script>
+<script>
+/* ==============================
+   MOCK TRANSACTIONS DATA
+================================ */
+let transactions = [
+  { id: 1, tenant: 'Berkley Shazie', property: 'CZ Hostel', amount: 10000, date: '2026-02-05', status: 'Paid' },
+  { id: 2, tenant: 'Tracy Njeri', property: 'Mara Hostel', amount: 12000, date: '2026-02-06', status: 'Pending' },
+  { id: 3, tenant: 'Alice Loise', property: 'High Tower', amount: 7000, date: '2026-02-06', status: 'Failed' }
+];
+
+/* ==============================
+   RENDER TRANSACTIONS TABLE
+================================ */
+function renderTransactions(list = transactions) {
+  const tbody = document.querySelector('#paymentTable tbody');
+  tbody.innerHTML = '';
+
+  list.forEach((tx, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${index+1}</td>
+      <td>${tx.tenant}</td>
+      <td>${tx.property}</td>
+      <td>${tx.amount.toLocaleString()}</td>
+      <td>${tx.date}</td>
+      <td>
+        <span class="badge ${tx.status === 'Paid' ? 'bg-success' : tx.status === 'Pending' ? 'bg-warning' : 'bg-danger'}">
+          ${tx.status}
+        </span>
+      </td>
+      <td>
+        <button class="btn btn-sm btn-primary me-1" onclick="viewReceipt(${tx.id})"><i class="bi bi-receipt"></i> Receipt</button>
+        ${tx.status === 'Pending' ? `
+          <button class="btn btn-sm btn-success me-1" onclick="approvePayment(${tx.id})">Approve</button>
+          <button class="btn btn-sm btn-danger" onclick="rejectPayment(${tx.id})">Reject</button>` : ''}
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+/* ==============================
+   VIEW RECEIPT
+================================ */
+function viewReceipt(id) {
+  const tx = transactions.find(t => t.id === id);
+  const content = `
+    <p><strong>Tenant:</strong> ${tx.tenant}</p>
+    <p><strong>Property:</strong> ${tx.property}</p>
+    <p><strong>Amount:</strong> KES ${tx.amount.toLocaleString()}</p>
+    <p><strong>Date:</strong> ${tx.date}</p>
+    <p><strong>Status:</strong> ${tx.status}</p>
+  `;
+  document.getElementById('receiptContent').innerHTML = content;
+  new bootstrap.Modal(document.getElementById('receiptModal')).show();
+}
+
+/* ==============================
+   APPROVE / REJECT PAYMENTS
+================================ */
+function approvePayment(id) {
+  const tx = transactions.find(t => t.id === id);
+  tx.status = 'Paid';
+  alert(`Payment by ${tx.tenant} has been approved.`);
+  renderTransactions();
+}
+
+function rejectPayment(id) {
+  const tx = transactions.find(t => t.id === id);
+  tx.status = 'Failed';
+  alert(`Payment by ${tx.tenant} has been rejected.`);
+  renderTransactions();
+}
+
+/* ==============================
+   SEARCH TRANSACTIONS
+================================ */
+document.getElementById('paymentSearch').addEventListener('input', function() {
+  const search = this.value.toLowerCase();
+  const filtered = transactions.filter(tx =>
+    tx.tenant.toLowerCase().includes(search) ||
+    tx.property.toLowerCase().includes(search) ||
+    tx.status.toLowerCase().includes(search)
+  );
+  renderTransactions(filtered);
+});
+
+/* ==============================
+   EXPORT / REPORT (SIMULATED)
+================================ */
+function generateReport() {
+  alert('Report exported successfully! (Simulation)');
+}
+
+/* ==============================
+   DOWNLOAD RECEIPT (SIMULATED)
+================================ */
+function downloadReceipt() {
+  alert('Receipt download started (Simulation).');
+}
+
+/* ==============================
+   INITIAL LOAD
+================================ */
+renderTransactions();
+</script>
+
+
 
 </body>
 </html>
